@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayowa Grand Hotel - Luxury Accommodation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="check this/ayowa hotel images/images.jpeg" alt="Ayowa Grand Hotel">
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#rooms">Rooms</a></li>
+                <li><a href="#amenities">Amenities</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="book-btn">Book Now</button>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slider">
+            <div class="hero-slide active">
+                <img src="check this/ayowa hotel images/Untitled.jpeg" alt="Ayowa Hotel Exterior">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-slide">
+                <img src="check this/ayowa hotel images/Unti11tled.jpeg" alt="Hotel Entrance">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-slide">
+                <img src="check this/ayowa hotel images/Untit123led.jpeg" alt="Hotel Exterior View">
+                <div class="hero-overlay"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title fade-in">Welcome to Ayowa Grand Hotel</h1>
+            <p class="hero-subtitle fade-in-delay">Where Luxury Meets Excellence</p>
+            <button class="cta-btn fade-in-delay-2">Explore Our Rooms</button>
+        </div>
+
+        <!-- Booking Widget -->
+        <div class="booking-widget fade-in-delay-2">
+            <div class="booking-container">
+                <div class="booking-item">
+                    <label>Check In</label>
+                    <input type="date" id="checkIn" class="booking-input">
+                </div>
+                <div class="booking-item">
+                    <label>Check Out</label>
+                    <input type="date" id="checkOut" class="booking-input">
+                </div>
+                <div class="booking-item">
+                    <label>Guests</label>
+                    <select class="booking-input" name="guests" id="guests">
+                        <option value="1">1 Guest</option>
+                        <option value="2" selected>2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4+">4+ Guests</option>
+                    </select>
+                </div>
+                <div class="booking-item">
+                    <label>Room Type</label>
+                    <select class="booking-input" name="roomType" id="roomType">
+                        <option value="deluxe">Deluxe Suite</option>
+                        <option value="executive" selected>Executive Room</option>
+                        <option value="ballroom">Grand Ballroom</option>
+                    </select>
+                </div>
+                <button class="booking-submit-btn">Check Availability</button>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text reveal">
+                    <span class="section-label">Discover</span>
+                    <h2 class="section-title">A Legacy of Luxury</h2>
+                    <p>Ayowa Grand Hotel stands as a beacon of sophistication and elegance. Our architectural masterpiece combines contemporary design with timeless luxury, offering an unparalleled hospitality experience.</p>
+                    <p>Every detail has been meticulously crafted to ensure your stay is nothing short of extraordinary. From our world-class amenities to our attentive service, we redefine what it means to experience true luxury.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <h3 class="stat-number" data-target="150">0</h3>
+                            <p>Luxury Rooms</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="stat-number" data-target="5">0</h3>
+                            <p>Star Rating</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="stat-number" data-target="24">0</h3>
+                            <p>Hour Service</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image reveal-right">
+                    <div class="image-wrapper">
+                        <img src="check this/ayowa hotel images/Untit45led.jpeg" alt="Hotel Driveway">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section class="rooms" id="rooms">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Accommodations</span>
+                <h2 class="section-title">Our Signature Rooms</h2>
+                <p class="section-description">Experience unparalleled comfort in our meticulously designed rooms</p>
+            </div>
+            <div class="rooms-grid">
+                <div class="room-card reveal">
+                    <div class="room-image">
+                        <img src="check this/ayowa hotel images/images1.jpeg" alt="Grand Ballroom">
+                        <div class="room-overlay">
+                            <button class="view-btn">View Details</button>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3>Grand Ballroom</h3>
+                        <p>Perfect for events and celebrations with stunning chandeliers</p>
+                        <div class="room-features">
+                            <span>500 sq ft</span>
+                            <span>Events</span>
+                            <span>Luxury</span>
+                        </div>
+                        <div class="room-price">From $500/night</div>
+                    </div>
+                </div>
+                <div class="room-card reveal">
+                    <div class="room-image">
+                        <img src="check this/ayowa hotel images/Untit78led.jpeg" alt="Deluxe Suite">
+                        <div class="room-overlay">
+                            <button class="view-btn">View Details</button>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3>Deluxe Suite</h3>
+                        <p>Spacious elegance with panoramic views</p>
+                        <div class="room-features">
+                            <span>450 sq ft</span>
+                            <span>King Bed</span>
+                            <span>City View</span>
+                        </div>
+                        <div class="room-price">From $350/night</div>
+                    </div>
+                </div>
+                <div class="room-card reveal">
+                    <div class="room-image">
+                        <img src="check this/ayowa hotel images/Untitl789ed.jpeg" alt="Executive Room">
+                        <div class="room-overlay">
+                            <button class="view-btn">View Details</button>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3>Executive Room</h3>
+                        <p>Modern comfort designed for discerning travelers</p>
+                        <div class="room-features">
+                            <span>350 sq ft</span>
+                            <span>Queen Bed</span>
+                            <span>Premium</span>
+                        </div>
+                        <div class="room-price">From $250/night</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section class="amenities" id="amenities">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Facilities</span>
+                <h2 class="section-title">World-Class Amenities</h2>
+            </div>
+            <div class="amenities-grid">
+                <div class="amenity-card reveal">
+                    <div class="amenity-icon">🍽️</div>
+                    <h3>Fine Dining</h3>
+                    <p>Exquisite culinary experiences from renowned chefs</p>
+                </div>
+                <div class="amenity-card reveal">
+                    <div class="amenity-icon">💆</div>
+                    <h3>Luxury Spa</h3>
+                    <p>Rejuvenate your body and mind with premium treatments</p>
+                </div>
+                <div class="amenity-card reveal">
+                    <div class="amenity-icon">🏊</div>
+                    <h3>Infinity Pool</h3>
+                    <p>Stunning rooftop pool with breathtaking city views</p>
+                </div>
+                <div class="amenity-card reveal">
+                    <div class="amenity-icon">💪</div>
+                    <h3>Fitness Center</h3>
+                    <p>State-of-the-art equipment for your wellness needs</p>
+                </div>
+                <div class="amenity-card reveal">
+                    <div class="amenity-icon">🎉</div>
+                    <h3>Event Spaces</h3>
+                    <p>Elegant venues for conferences and celebrations</p>
+                </div>
+                <div class="amenity-card reveal">
+                    <div class="amenity-icon">🚗</div>
+                    <h3>Valet Parking</h3>
+                    <p>Complimentary secure parking for all guests</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Visual Journey</span>
+                <h2 class="section-title">Gallery</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal">
+                    <img src="check this/ayowa hotel images/Untitled.jpeg" alt="Hotel Night View">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="check this/ayowa hotel images/Unti11tled.jpeg" alt="Hotel Day View">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="check this/ayowa hotel images/Untit123led.jpeg" alt="Hotel Exterior">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="check this/ayowa hotel images/Untit45led.jpeg" alt="Hotel Entrance">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="check this/ayowa hotel images/images1.jpeg" alt="Grand Ballroom">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="check this/ayowa hotel images/Untit78led.jpeg" alt="Interior View">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info reveal">
+                    <span class="section-label">Get in Touch</span>
+                    <h2 class="section-title">Contact Us</h2>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h4>Address</h4>
+                                <p>Ayowa Grand Hotel<br>Luxury Boulevard, City Center</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>reservations@ayowahotel.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form reveal-right">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <img src="check this/ayowa hotel images/images.jpeg" alt="Ayowa Grand Hotel" class="footer-logo">
+                    <h3>ABOUT US</h3>
+                    <p>Ayowa Grand Hotel stands as a beacon of luxury and excellence. We offer an unparalleled hospitality experience, combining contemporary elegance with world-class service to make your stay truly unforgettable.</p>
+                    <div class="footer-newsletter">
+                        <h4>Subscribe to Newsletter</h4>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Enter your email">
+                            <button>Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-menu">
+                    <h3>MAIN MENU</h3>
+                    <ul>
+                        <li><a href="#home">🏨 Home</a></li>
+                        <li><a href="#about">ℹ️ About Us</a></li>
+                        <li><a href="#rooms">🛏️ Rooms & Suites</a></li>
+                        <li><a href="#amenities">⭐ Amenities</a></li>
+                        <li><a href="#gallery">📸 Gallery</a></li>
+                        <li><a href="#contact">📞 Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>CONTACT INFO</h3>
+                    <div class="contact-info-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Ayowa Grand Hotel<br>Luxury Boulevard, City Center</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567<br>+1 (555) 987-6543</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="contact-icon">✉️</span>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@ayowahotel.com<br>reservations@ayowahotel.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-social-section">
+                    <h3>SOCIAL LINKS</h3>
+                    <div class="social-links-grid">
+                        <a href="#" class="social-link">
+                            <span class="social-icon-modern">📘</span>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-icon-modern">📷</span>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-icon-modern">🐦</span>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-icon-modern">💼</span>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-icon-modern">▶️</span>
+                            <span>YouTube</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-icon-modern">🎵</span>
+                            <span>TikTok</span>
+                        </a>
+                    </div>
+                    <div class="footer-payment">
+                        <h4>We Accept</h4>
+                        <div class="payment-icons">
+                            <span>💳</span>
+                            <span>💰</span>
+                            <span>🏦</span>
+                            <span>📱</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ayowa Grand Hotel. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div class="booking-modal" id="bookingModal">
+        <div class="booking-modal-overlay"></div>
+        <div class="booking-modal-content">
+            <button class="booking-modal-close" id="closeModal">&times;</button>
+            <h2>Complete Your Reservation</h2>
+            <p class="modal-subtitle">Please fill in your details to confirm your booking</p>
+
+            <form id="fullBookingForm" class="full-booking-form">
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-col">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-col">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+
+                <div class="booking-summary">
+                    <h3>Booking Summary</h3>
+                    <div class="summary-details">
+                        <div class="summary-item">
+                            <span>Check-in:</span>
+                            <strong id="summaryCheckIn">-</strong>
+                        </div>
+                        <div class="summary-item">
+                            <span>Check-out:</span>
+                            <strong id="summaryCheckOut">-</strong>
+                        </div>
+                        <div class="summary-item">
+                            <span>Nights:</span>
+                            <strong id="summaryNights">-</strong>
+                        </div>
+                        <div class="summary-item">
+                            <span>Guests:</span>
+                            <strong id="summaryGuests">-</strong>
+                        </div>
+                        <div class="summary-item">
+                            <span>Room Type:</span>
+                            <strong id="summaryRoomType">-</strong>
+                        </div>
+                        <div class="summary-item total">
+                            <span>Estimated Total:</span>
+                            <strong id="summaryTotal">$0</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group-full">
+                    <label for="specialRequests">Special Requests (Optional)</label>
+                    <textarea id="specialRequests" name="specialRequests" rows="3" placeholder="Any special requirements or preferences..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancelBooking">Cancel</button>
+                    <button type="submit" class="btn-primary">Confirm Booking</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="confirmation-modal" id="confirmationModal">
+        <div class="confirmation-overlay"></div>
+        <div class="confirmation-content">
+            <div class="success-icon">✓</div>
+            <h2>Booking Confirmed!</h2>
+            <p>Thank you for choosing Ayowa Grand Hotel</p>
+
+            <div class="confirmation-details" id="confirmationDetails">
+                <!-- Filled by JavaScript -->
+            </div>
+
+            <div class="confirmation-message">
+                <p>A confirmation email has been sent to <strong id="confirmEmail">-</strong></p>
+                <p>Your booking reference number is: <strong id="bookingRef">-</strong></p>
+            </div>
+
+            <button class="btn-primary" id="closeConfirmation">Done</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
