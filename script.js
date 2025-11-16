@@ -119,6 +119,109 @@ document.querySelectorAll('.view-btn').forEach(btn => {
     });
 });
 
+// ============================================
+// BOOKING WIDGET FUNCTIONALITY
+// ============================================
+
+// Set minimum date to today for check-in
+const checkInInput = document.getElementById('checkIn');
+const checkOutInput = document.getElementById('checkOut');
+const bookingForm = document.getElementById('bookingForm');
+
+// Set today's date as minimum for check-in
+const today = new Date().toISOString().split('T')[0];
+if (checkInInput) {
+    checkInInput.min = today;
+    checkInInput.value = today;
+}
+
+// Update check-out minimum date when check-in changes
+if (checkInInput && checkOutInput) {
+    checkInInput.addEventListener('change', function() {
+        const checkInDate = new Date(this.value);
+        checkInDate.setDate(checkInDate.getDate() + 1); // Minimum 1 night stay
+        const minCheckOut = checkInDate.toISOString().split('T')[0];
+        checkOutInput.min = minCheckOut;
+
+        // Auto-set check-out to next day if not set or invalid
+        if (!checkOutInput.value || checkOutInput.value <= this.value) {
+            checkOutInput.value = minCheckOut;
+        }
+    });
+
+    // Set initial check-out date (tomorrow)
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    checkOutInput.min = tomorrow.toISOString().split('T')[0];
+    checkOutInput.value = tomorrow.toISOString().split('T')[0];
+}
+
+// Handle booking form submission
+if (bookingForm) {
+    bookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Get form values
+        const checkIn = checkInInput.value;
+        const checkOut = checkOutInput.value;
+        const adults = document.getElementById('adults').value;
+        const children = document.getElementById('children').value;
+
+        // Calculate number of nights
+        const checkInDate = new Date(checkIn);
+        const checkOutDate = new Date(checkOut);
+        const nights = Math.ceil((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
+
+        // Format dates for display
+        const formatDate = (dateStr) => {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-US', {
+                weekday: 'short',
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+            });
+        };
+
+        // Create booking summary
+        const summary = `
+🏨 BOOKING SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━
+📅 Check-In:  ${formatDate(checkIn)}
+📅 Check-Out: ${formatDate(checkOut)}
+🌙 Nights:    ${nights} night${nights > 1 ? 's' : ''}
+👥 Guests:    ${adults} adult${adults > 1 ? 's' : ''}${children > 0 ? `, ${children} child${children > 1 ? 'ren' : ''}` : ''}
+━━━━━━━━━━━━━━━━━━━━━━
+
+We're searching for the best rooms for your dates...
+
+You'll be redirected to available rooms shortly!
+        `.trim();
+
+        // Show booking summary
+        alert(summary);
+
+        // Simulate search and scroll to rooms section
+        setTimeout(() => {
+            const roomsSection = document.getElementById('rooms');
+            if (roomsSection) {
+                roomsSection.scrollIntoView({ behavior: 'smooth' });
+
+                // Add a visual highlight to rooms
+                const roomCards = document.querySelectorAll('.room-card');
+                roomCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.transform = 'scale(1.05)';
+                        setTimeout(() => {
+                            card.style.transform = '';
+                        }, 300);
+                    }, index * 200);
+                });
+            }
+        }, 1000);
+    });
+}
+
 // Hero slider
 const slides = document.querySelectorAll('.hero-slide');
 let currentSlide = 0;
@@ -600,5 +703,93 @@ rippleStyle.textContent = `
     }
 `;
 document.head.appendChild(rippleStyle);
+
+// ============================================
+// EVENT FILTERING & VIDEO FUNCTIONALITY
+// ============================================
+
+// Event Filter Functionality
+const filterBtns = document.querySelectorAll('.filter-btn');
+const eventPosts = document.querySelectorAll('.event-post');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        // Remove active class from all buttons
+        filterBtns.forEach(b => b.classList.remove('active'));
+
+        // Add active class to clicked button
+        this.classList.add('active');
+
+        // Get filter value
+        const filterValue = this.getAttribute('data-filter');
+
+        // Filter posts with animation
+        eventPosts.forEach((post, index) => {
+            const category = post.getAttribute('data-category');
+
+            // Add fade out effect
+            post.style.opacity = '0';
+            post.style.transform = 'translateY(20px)';
+
+            setTimeout(() => {
+                if (filterValue === 'all' || category === filterValue) {
+                    post.classList.remove('hidden');
+                    // Fade in with stagger
+                    setTimeout(() => {
+                        post.style.opacity = '1';
+                        post.style.transform = 'translateY(0)';
+                    }, index * 50);
+                } else {
+                    post.classList.add('hidden');
+                }
+            }, 300);
+        });
+    });
+});
+
+// Video Links - Show Video Modal or Alert
+document.querySelectorAll('.video-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const videoId = this.getAttribute('data-video');
+        const videoTitle = this.closest('.event-post-content').querySelector('h3').textContent;
+
+        // Show video information
+        alert(`🎥 ${videoTitle}\n\n📺 Video Player Coming Soon!\n\nThis feature will open a video modal player with:\n- Full HD quality\n- Subtitles\n- Share options\n- Related videos\n\nVideo ID: ${videoId}\n\nStay tuned for updates!`);
+    });
+});
+
+// Load More Posts Functionality
+const loadMoreBtn = document.querySelector('.load-more-btn');
+if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', function() {
+        // Simulate loading more posts
+        this.innerHTML = '<span style="display: inline-block; animation: spin 1s linear infinite;">⟳</span> Loading...';
+
+        setTimeout(() => {
+            alert('📰 More Content Coming Soon!\n\nWe\'re constantly updating our events, news, and video content.\n\nCheck back regularly for:\n• Upcoming hotel events\n• Latest news and announcements\n• Exclusive behind-the-scenes videos\n• Guest testimonials\n• Special offers and promotions');
+            this.innerHTML = 'Load More Posts';
+        }, 1500);
+    });
+}
+
+// Add smooth transition to all event posts
+eventPosts.forEach(post => {
+    post.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+});
+
+// Animate posts on scroll
+const postObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, { threshold: 0.1 });
+
+eventPosts.forEach(post => {
+    postObserver.observe(post);
+});
 
 console.log('Ayowa Grand Hotel - Modern Website Loaded Successfully');

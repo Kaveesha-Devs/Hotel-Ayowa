@@ -40,6 +40,8 @@
                 <li role="none"><a href="#rooms" role="menuitem">Rooms</a></li>
                 <li role="none"><a href="#amenities" role="menuitem">Amenities</a></li>
                 <li role="none"><a href="#gallery" role="menuitem">Gallery</a></li>
+                <li role="none"><a href="#events" role="menuitem">Events</a></li>
+                <li role="none"><a href="#location" role="menuitem">Location</a></li>
                 <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
             </ul>
             <button class="book-btn" id="bookNowBtn" aria-label="Book your room now">Book Now</button>
@@ -76,65 +78,65 @@
         <div class="scroll-indicator" aria-hidden="true">
             <div class="mouse"></div>
         </div>
-
-        <!-- Booking Widget -->
-        <div class="booking-widget">
-            <form id="bookingForm" class="booking-form">
-                <div class="booking-field">
-                    <label for="checkIn">
-                        <span class="booking-icon">📅</span>
-                        <span class="booking-label">Check-In</span>
-                    </label>
-                    <input type="date" id="checkIn" name="checkIn" required>
-                </div>
-
-                <div class="booking-field">
-                    <label for="checkOut">
-                        <span class="booking-icon">📅</span>
-                        <span class="booking-label">Check-Out</span>
-                    </label>
-                    <input type="date" id="checkOut" name="checkOut" required>
-                </div>
-
-                <div class="booking-field">
-                    <label for="adults">
-                        <span class="booking-icon">👤</span>
-                        <span class="booking-label">Adults</span>
-                    </label>
-                    <select id="adults" name="adults" required>
-                        <option value="1">1 Adult</option>
-                        <option value="2" selected>2 Adults</option>
-                        <option value="3">3 Adults</option>
-                        <option value="4">4 Adults</option>
-                        <option value="5">5+ Adults</option>
-                    </select>
-                </div>
-
-                <div class="booking-field">
-                    <label for="children">
-                        <span class="booking-icon">👶</span>
-                        <span class="booking-label">Children</span>
-                    </label>
-                    <select id="children" name="children">
-                        <option value="0" selected>0 Children</option>
-                        <option value="1">1 Child</option>
-                        <option value="2">2 Children</option>
-                        <option value="3">3 Children</option>
-                        <option value="4">4+ Children</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="booking-submit-btn">
-                    <span>Find Room</span>
-                    <span class="booking-arrow">→</span>
-                </button>
-            </form>
-        </div>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
+            <!-- Booking Widget -->
+            <div class="booking-widget">
+                <form id="bookingForm" class="booking-form">
+                    <div class="booking-field">
+                        <label for="checkIn">
+                            <span class="booking-icon">📅</span>
+                            <span class="booking-label">Check-In</span>
+                        </label>
+                        <input type="date" id="checkIn" name="checkIn" required>
+                    </div>
+
+                    <div class="booking-field">
+                        <label for="checkOut">
+                            <span class="booking-icon">📅</span>
+                            <span class="booking-label">Check-Out</span>
+                        </label>
+                        <input type="date" id="checkOut" name="checkOut" required>
+                    </div>
+
+                    <div class="booking-field">
+                        <label for="adults">
+                            <span class="booking-icon">👤</span>
+                            <span class="booking-label">Adults</span>
+                        </label>
+                        <select id="adults" name="adults" required>
+                            <option value="1">1 Adult</option>
+                            <option value="2" selected>2 Adults</option>
+                            <option value="3">3 Adults</option>
+                            <option value="4">4 Adults</option>
+                            <option value="5">5+ Adults</option>
+                        </select>
+                    </div>
+
+                    <div class="booking-field">
+                        <label for="children">
+                            <span class="booking-icon">👶</span>
+                            <span class="booking-label">Children</span>
+                        </label>
+                        <select id="children" name="children">
+                            <option value="0" selected>0 Children</option>
+                            <option value="1">1 Child</option>
+                            <option value="2">2 Children</option>
+                            <option value="3">3 Children</option>
+                            <option value="4">4+ Children</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="booking-submit-btn">
+                        <span>Find Room</span>
+                        <span class="booking-arrow">→</span>
+                    </button>
+                </form>
+            </div>
+
             <div class="about-content">
                 <div class="about-text reveal">
                     <span class="section-label">Discover</span>
@@ -304,6 +306,198 @@
         </div>
     </section>
 
+    <!-- Events & News Section -->
+    <section class="events" id="events">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Latest Updates</span>
+                <h2 class="section-title">Events, News & Videos</h2>
+                <p class="section-description">Stay updated with our latest events, hotel news, and exclusive video content</p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="event-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="event">Events</button>
+                <button class="filter-btn" data-filter="video">Videos</button>
+                <button class="filter-btn" data-filter="news">News</button>
+            </div>
+
+            <!-- Events Grid -->
+            <div class="events-grid">
+                <!-- Event Post 1 - Wedding Showcase -->
+                <article class="event-post reveal" data-category="event">
+                    <div class="event-post-image">
+                        <img src="check this/ayowa hotel images/images1.jpeg" alt="Wedding Event at Ayowa Grand Hotel">
+                        <div class="event-badge event-badge-event">Event</div>
+                        <div class="event-date">
+                            <span class="date-day">25</span>
+                            <span class="date-month">Dec</span>
+                        </div>
+                    </div>
+                    <div class="event-post-content">
+                        <div class="event-meta">
+                            <span class="event-category">💍 Wedding</span>
+                            <span class="event-time">6:00 PM - 11:00 PM</span>
+                        </div>
+                        <h3>Grand Wedding Showcase 2025</h3>
+                        <p>Join us for an exclusive wedding showcase featuring our premium ballroom, custom decor options, and gourmet catering samples. Meet with our expert wedding planners.</p>
+                        <a href="#contact" class="event-read-more">Register Now →</a>
+                    </div>
+                </article>
+
+                <!-- Video Post 1 - Hotel Tour -->
+                <article class="event-post reveal" data-category="video">
+                    <div class="event-post-image">
+                        <img src="check this/ayowa hotel images/Untitled.jpeg" alt="Virtual Hotel Tour">
+                        <div class="event-badge event-badge-video">Video</div>
+                        <div class="video-play-btn">▶</div>
+                    </div>
+                    <div class="event-post-content">
+                        <div class="event-meta">
+                            <span class="event-category">🎥 Virtual Tour</span>
+                            <span class="event-time">5:30 min</span>
+                        </div>
+                        <h3>Ayowa Grand Hotel - Virtual Tour</h3>
+                        <p>Take a virtual journey through our luxurious facilities. Explore our rooms, amenities, dining areas, and breathtaking views in this comprehensive video tour.</p>
+                        <a href="#" class="event-read-more video-link" data-video="hotel-tour">Watch Video →</a>
+                    </div>
+                </article>
+
+                <!-- News Post 1 - Award -->
+                <article class="event-post reveal" data-category="news">
+                    <div class="event-post-image">
+                        <img src="check this/ayowa hotel images/Untit78led.jpeg" alt="Hotel Award News">
+                        <div class="event-badge event-badge-news">News</div>
+                        <div class="event-date">
+                            <span class="date-day">15</span>
+                            <span class="date-month">Nov</span>
+                        </div>
+                    </div>
+                    <div class="event-post-content">
+                        <div class="event-meta">
+                            <span class="event-category">🏆 Achievement</span>
+                            <span class="event-time">2 days ago</span>
+                        </div>
+                        <h3>Ayowa Grand Wins Best Luxury Hotel 2025</h3>
+                        <p>We're proud to announce that Ayowa Grand Hotel has been awarded "Best Luxury Hotel of the Year" by the International Hospitality Association for exceptional service and guest experience.</p>
+                        <a href="#" class="event-read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <!-- Event Post 2 - Corporate Conference -->
+                <article class="event-post reveal" data-category="event">
+                    <div class="event-post-image">
+                        <img src="check this/ayowa hotel images/Untit45led.jpeg" alt="Business Conference">
+                        <div class="event-badge event-badge-event">Event</div>
+                        <div class="event-date">
+                            <span class="date-day">10</span>
+                            <span class="date-month">Jan</span>
+                        </div>
+                    </div>
+                    <div class="event-post-content">
+                        <div class="event-meta">
+                            <span class="event-category">💼 Business</span>
+                            <span class="event-time">9:00 AM - 5:00 PM</span>
+                        </div>
+                        <h3>Annual Business Leaders Summit</h3>
+                        <p>Network with industry leaders at our prestigious business summit. Features keynote speakers, panel discussions, and exclusive networking sessions in our state-of-the-art conference facilities.</p>
+                        <a href="#contact" class="event-read-more">Book Your Spot →</a>
+                    </div>
+                </article>
+
+                <!-- Video Post 2 - Chef's Kitchen -->
+                <article class="event-post reveal" data-category="video">
+                    <div class="event-post-image">
+                        <img src="check this/ayowa hotel images/Untitl789ed.jpeg" alt="Chef's Kitchen Tour">
+                        <div class="event-badge event-badge-video">Video</div>
+                        <div class="video-play-btn">▶</div>
+                    </div>
+                    <div class="event-post-content">
+                        <div class="event-meta">
+                            <span class="event-category">🍽️ Culinary</span>
+                            <span class="event-time">8:15 min</span>
+                        </div>
+                        <h3>Inside Our Michelin-Star Kitchen</h3>
+                        <p>Go behind the scenes with our executive chef as he showcases the art of fine dining. Learn about our signature dishes, locally sourced ingredients, and culinary philosophy.</p>
+                        <a href="#" class="event-read-more video-link" data-video="chef-kitchen">Watch Video →</a>
+                    </div>
+                </article>
+
+                <!-- News Post 2 - New Spa -->
+                <article class="event-post reveal" data-category="news">
+                    <div class="event-post-image">
+                        <img src="check this/ayowa hotel images/Unti11tled.jpeg" alt="New Spa Opening">
+                        <div class="event-badge event-badge-news">News</div>
+                        <div class="event-date">
+                            <span class="date-day">01</span>
+                            <span class="date-month">Dec</span>
+                        </div>
+                    </div>
+                    <div class="event-post-content">
+                        <div class="event-meta">
+                            <span class="event-category">💆 Wellness</span>
+                            <span class="event-time">1 week ago</span>
+                        </div>
+                        <h3>New Luxury Spa Wing Now Open</h3>
+                        <p>Experience ultimate relaxation in our newly renovated spa facility. Featuring thermal pools, aromatherapy rooms, and exclusive treatment suites with panoramic city views. Book your appointment today!</p>
+                        <a href="#" class="event-read-more">Discover More →</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="event-load-more">
+                <button class="load-more-btn">Load More Posts</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section" id="location">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Location</span>
+                <h2 class="section-title">Find Us Easily</h2>
+                <p class="section-description">Visit us at our luxurious location in the heart of the city</p>
+            </div>
+            <div class="map-container reveal">
+                <div class="map-wrapper">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.5895!2d80.009454!3d7.226116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTMnMzQuMCJOIDgwwrAwMCczNC4wIkU!5e0!3m2!1sen!2s!4v1234567890123"
+                        width="100%"
+                        height="500"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Ayowa Grand Hotel Location Map">
+                    </iframe>
+                </div>
+                <div class="map-info-cards">
+                    <div class="map-info-card">
+                        <div class="map-card-icon">📍</div>
+                        <h4>Address</h4>
+                        <p>Ayowa Grand Hotel<br>Luxury Boulevard, City Center</p>
+                        <a href="https://www.google.com/maps?q=7.226116,80.009454" target="_blank" class="map-link">
+                            Get Directions →
+                        </a>
+                    </div>
+                    <div class="map-info-card">
+                        <div class="map-card-icon">🚗</div>
+                        <h4>Parking</h4>
+                        <p>Free valet parking available for all guests</p>
+                    </div>
+                    <div class="map-info-card">
+                        <div class="map-card-icon">✈️</div>
+                        <h4>Airport Transfer</h4>
+                        <p>Complimentary shuttle service on request</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
@@ -381,6 +575,8 @@
                         <li><a href="#rooms">🛏️ Rooms & Suites</a></li>
                         <li><a href="#amenities">⭐ Amenities</a></li>
                         <li><a href="#gallery">📸 Gallery</a></li>
+                        <li><a href="#events">🎉 Events</a></li>
+                        <li><a href="#location">📍 Location</a></li>
                         <li><a href="#contact">📞 Contact Us</a></li>
                     </ul>
                 </div>
