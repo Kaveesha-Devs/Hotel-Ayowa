@@ -3,16 +3,59 @@ const navbar = document.getElementById('navbar');
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+// Consolidated scroll handler for performance
+let scrollTimeout;
+function handleScroll() {
+    // Throttle scroll events for better performance
+    if (scrollTimeout) return;
+
+    scrollTimeout = setTimeout(() => {
+        const scrollY = window.pageYOffset;
+
+        // Navbar scroll effect
+        if (scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+
+        // Scroll progress indicator
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (scrollY / windowHeight) * 100;
+        scrollProgress.style.width = scrolled + '%';
+
+        // Parallax effect for hero section
+        const heroSlides = document.querySelectorAll('.hero-slide img');
+        heroSlides.forEach(slide => {
+            const parallaxSpeed = 0.5;
+            slide.style.transform = `translateY(${scrollY * parallaxSpeed}px)`;
+        });
+
+        // Parallax for about section images
+        document.querySelectorAll('.image-wrapper img').forEach((img, index) => {
+            const speed = 0.3 + (index * 0.1);
+            img.style.transform = `translateY(${scrollY * speed * 0.3}px) scale(1.1)`;
+        });
+
+        // Parallax for stats
+        document.querySelectorAll('.stat-item').forEach((stat, index) => {
+            const rect = stat.getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                const offset = (window.innerHeight - rect.top) * 0.05;
+                stat.style.transform = `translateY(${offset}px)`;
+            }
+        });
+
+        scrollTimeout = null;
+    }, 10);
+}
+
+window.addEventListener('scroll', handleScroll, { passive: true });
 
 // Mobile menu toggle
 hamburger.addEventListener('click', () => {
+    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', !isExpanded);
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('active');
 });
@@ -20,8 +63,59 @@ hamburger.addEventListener('click', () => {
 // Close mobile menu when clicking a link
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
+        hamburger.setAttribute('aria-expanded', 'false');
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
+    });
+});
+
+// Book Now Button Functionality
+const bookNowBtn = document.getElementById('bookNowBtn');
+const ctaBtn = document.querySelector('.cta-btn');
+
+function handleBooking() {
+    // Scroll to contact section for booking inquiries
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+        const offsetTop = contactSection.offsetTop - 80;
+        window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+        });
+        // Focus on the first form input for accessibility
+        setTimeout(() => {
+            const firstInput = contactSection.querySelector('input');
+            if (firstInput) firstInput.focus();
+        }, 800);
+    }
+}
+
+if (bookNowBtn) {
+    bookNowBtn.addEventListener('click', handleBooking);
+}
+
+if (ctaBtn) {
+    ctaBtn.addEventListener('click', () => {
+        const roomsSection = document.getElementById('rooms');
+        if (roomsSection) {
+            const offsetTop = roomsSection.offsetTop - 80;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
+}
+
+// View Details Button Functionality
+document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const roomCard = btn.closest('.room-card');
+        const roomName = roomCard.querySelector('h3').textContent;
+        const roomPrice = roomCard.querySelector('.room-price').textContent;
+
+        alert(`${roomName}\n${roomPrice}\n\nFor booking inquiries, please contact us via the contact form or call +1 (555) 123-4567`);
     });
 });
 
@@ -123,16 +217,7 @@ contactForm.addEventListener('submit', (e) => {
     contactForm.reset();
 });
 
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroSlides = document.querySelectorAll('.hero-slide img');
-
-    heroSlides.forEach(slide => {
-        const parallaxSpeed = 0.5;
-        slide.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
-    });
-});
+// Parallax effect is now handled in consolidated scroll handler above
 
 // Gallery lightbox effect (simple version)
 const galleryItems = document.querySelectorAll('.gallery-item');
@@ -249,11 +334,7 @@ scrollProgress.style.cssText = `
 `;
 document.body.appendChild(scrollProgress);
 
-window.addEventListener('scroll', () => {
-    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (window.scrollY / windowHeight) * 100;
-    scrollProgress.style.width = scrolled + '%';
-});
+// Scroll progress is now handled in consolidated scroll handler above
 
 // Add entrance animation to amenity cards
 const amenityCards = document.querySelectorAll('.amenity-card');
@@ -454,25 +535,7 @@ document.querySelectorAll('.section-title').forEach(title => {
     titleObserver.observe(title);
 });
 
-// Advanced parallax for multiple elements
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-
-    // Parallax for about section images
-    document.querySelectorAll('.image-wrapper img').forEach((img, index) => {
-        const speed = 0.3 + (index * 0.1);
-        img.style.transform = `translateY(${scrolled * speed * 0.3}px) scale(1.1)`;
-    });
-
-    // Parallax for stats
-    document.querySelectorAll('.stat-item').forEach((stat, index) => {
-        const rect = stat.getBoundingClientRect();
-        if (rect.top < window.innerHeight) {
-            const offset = (window.innerHeight - rect.top) * 0.05;
-            stat.style.transform = `translateY(${offset}px)`;
-        }
-    });
-});
+// Advanced parallax is now handled in consolidated scroll handler above
 
 // Glitch effect for hero title on load
 function glitchEffect(element) {
