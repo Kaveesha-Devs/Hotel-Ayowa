@@ -283,7 +283,7 @@ body::after {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    animation: zoomIn 20s ease-out infinite;
+    animation: slide 20s ease-in-out infinite;
 }
 
 @keyframes zoomIn {
